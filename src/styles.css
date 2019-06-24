@@ -1,1 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Crimson+Text:400,700&display=swap');
+@import url('https://use.fontawesome.com/releases/v5.6.3/css/all.css');
+html{
+    font-family: 'Crimson Text', serif;
+}
+body{
+    font-family: 'Crimson Text', serif;
+}
+
+.bg-custom{
+    min-height: 80px;
+    color:white;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    margin-top: 5px;
+}

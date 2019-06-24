@@ -1,0 +1,12 @@
+.card-weather{
+    min-width: 100%;
+    min-height: 300px;
+    border:10 px solid red;
+    color:green;
+    border-style: dashed;
+    display: flex;
+}
+.card-header{
+    margin-top: 25px;
+    font-size: 2.5em;
+}
