@@ -5,7 +5,12 @@ export class customDatePipe extends DatePipe implements DatePipe {
     transform(value: any): any {
         return super.transform(value, "H");
     }
+}
 
+export class DateFormat  extends DatePipe implements DatePipe{
+    transform(value:any):any{
+        return super.transform(value,'yyyy-MM-dd');
+    }
 }
 
 

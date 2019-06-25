@@ -10,7 +10,8 @@ import { ActivitiesComponent } from './activities/activities.component';
 import { MoodsComponent } from './moods/moods.component';
 import { AppRoutingModule } from './app-routing.module';
 import { OpenWeatherService } from './open-weather.service';
-import { customDatePipe } from './custom/customDatePipe';
+import { customDatePipe, DateFormat } from './custom/customDatePipe';
+import { BackendService } from './backend.service';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,7 @@ import { customDatePipe } from './custom/customDatePipe';
     HttpClientModule,
     FormsModule
   ],
-  providers: [OpenWeatherService,customDatePipe],
+  providers: [OpenWeatherService,customDatePipe,BackendService,DateFormat],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
