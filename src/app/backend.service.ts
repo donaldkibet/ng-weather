@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import {Activity,moods} from './models/models';
+import {Activity,Moods} from './models/models';
 
 @Injectable({
   providedIn: 'root'
@@ -20,16 +20,16 @@ export class BackendService {
     return this.http.get(`http://localhost:8052/mood/${id}`);
   }
 
-  newMood(newMood:moods):Observable<any>{
+  newMood(newMood:Moods):Observable<any>{
     return this.http.post(`http://localhost:8052/mood`,newMood);
   }
 
-  upDateMood(updatedMood:moods):Observable<any>{
+  upDateMood(updatedMood:Moods):Observable<any>{
     return this.http.put('http://localhost:8052/mood',updatedMood);
   }
 
-  deleteMood(mood:moods):Observable<any>{
-    return this.http.delete(`http://localhost:8052/mood/${mood.id}`);
+  deleteMood(id:string):Observable<any>{
+    return this.http.delete(`http://localhost:8052/mood?id=${id}`);
   }
 
   // Activity CRUD
@@ -50,8 +50,9 @@ export class BackendService {
     return this.http.put(`http://localhost:8052/activity`,activity);
   }
 
-  deleteActivity(activity:Activity):Observable<any>{
-    return this.http.delete(`http://localhost:8052/activity?id=${activity.id}`,);
+  deleteActivity(id:string):Observable<any>{
+    console.log(id);
+    return this.http.delete(`http://localhost:8052/activity?id=${id}`);
   }
 
 }

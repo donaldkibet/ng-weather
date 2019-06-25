@@ -1,3 +1,141 @@
-<p>
-  moods works!
-</p>
+<div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <h3 class="text-success float-left">Moods <span class="fa fa-smile"></span></h3>
+      </div>
+      <div class="col-md-6">
+        <button type="button" class="btn btn-primary float-right" (click)='resetFields()' data-toggle="modal" data-target="#exampleModalCenter">
+          <span class="fa fa-plus"></span> New</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <hr>
+        <table class="table table-sm">
+          <thead class="thead-light">
+            <tr>
+              <th>time</th>
+              <th>date</th>
+              <th>mood</th>
+              <th></th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let mood of moods">
+              <td>{{mood.time}}</td>
+              <td>{{mood.date | date : 'EE, MMMM d, y'}}</td>
+              <td>{{mood.mood}}</td>
+              <td colspan="2">
+                <button class="btn btn-warning mr-1 text-white btn-sm" (click)='getmoodById(mood.id)' data-toggle="modal" data-target="#updateModal"><span class="fa fa-edit"></span> Edit</button>
+                <button class="btn btn-danger ml-3 btn-sm" (click)='deletemood(mood.id)'><span class="fa fa-trash"></span> Delete</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  
+  <!--Save  Modals-->
+  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalCenterTitle">Mood Entry Form</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" *ngIf="mood">
+          <div class="col-md-12">
+            <div class="form-group">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="basic-addon1"><i class="fa fa-clock"></i></span>
+                    </div>
+                    <input type="time" [(ngModel)]="mood.time"  class="form-control" placeholder="enter time ">
+                  </div>
+            </div>
+            <div class="form-group">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="basic-addon1"><i class="fa fa-calendar"></i></span>
+                    </div>
+                    <input type="date" [(ngModel)]="mood.date" class="form-control" placeholder="enter date">
+                  </div>
+            </div>
+            <div class="form-group">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="basic-addon1"><i class="fa fa-smile"></i></span>
+                    </div>
+                    <input type="text" [(ngModel)]="mood.mood" class="form-control" placeholder="enter mood">
+                  </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" (click)="newmood()" data-dismiss="modal" class="btn btn-primary"><span class="fa fa-save"></span> Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  <!--Update Modals-->
+  <div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalCenterTitle">Mood Update Form</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" *ngIf="mood">
+          <div class="col-md-12">
+              <div class="form-group">
+                  <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1"><i class="fa fa-id-card"></i></span>
+                      </div>
+                      <input type="text" [(ngModel)]="mood.id" class="form-control" placeholder="" disabled>
+                    </div>
+              </div>
+            <div class="form-group">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="basic-addon1"><i class="fa fa-clock"></i></span>
+                    </div>
+                    <input type="time" [(ngModel)]="mood.time" class="form-control" placeholder="enter time ">
+                  </div>
+            </div>
+            <div class="form-group">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="basic-addon1"><i class="fa fa-calendar"></i></span>
+                    </div>
+                    <input type="date" [(ngModel)]="mood.date" class="form-control" placeholder="enter date">
+                  </div>
+            </div>
+            <div class="form-group">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="basic-addon1"><i class="fa fa-people-carry"></i></span>
+                    </div>
+                    <input type="text" [(ngModel)]="mood.mood" class="form-control" placeholder="enter mood">
+                  </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" (click)="upDatemood()" data-dismiss="modal" class="btn btn-primary"><span class="fa fa-save"></span> Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>

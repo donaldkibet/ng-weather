@@ -12,7 +12,7 @@ export class Activity{
     }
 }
 
-export class moods{
+export class Moods{
     id?:number;
     time:string;
     date:Date;

@@ -11,7 +11,7 @@ import { DateFormat } from '../custom/customDatePipe';
 export class ActivitiesComponent implements OnInit {
 
   activities: any[] = [];
-  activity: Activity = new Activity(0, "", new Date(), "");
+  activity: Activity = new Activity(null, "", new Date(), "");
   constructor(private backendService: BackendService, private dateFormat: DateFormat) { }
 
   getAllActivities() {
@@ -50,16 +50,13 @@ export class ActivitiesComponent implements OnInit {
       )
   }
 
-  deleteActivity(id){
-    this.resetFields();
-    this.getActivityById(id);
-    this.backendService.deleteActivity(this.activity)
-        .subscribe(
-          (response)=>{
-            console.log(response);
-            this.getAllActivities();
-          }
-        )
+  deleteActivity(id:string) {
+    this.backendService.deleteActivity(id)
+      .subscribe(
+        (response) => {
+          this.getAllActivities();
+        }
+      )
   }
 
 
