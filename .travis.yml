@@ -1,0 +1,26 @@
+dist: trusty
+sudo: false
+
+language: node_js
+node_js:
+  - "10"
+  
+addons:
+  apt:
+    sources:
+      - google-chrome
+    packages:
+      - google-chrome-stable
+
+cache:
+  directories:
+     - ./node_modules
+
+install:
+  - npm install
+
+script:
+  - ng build --prod
+
+after_success:
+  - firebase deploy --token 1/C_CqJ2yNFheBTwBfQm6spwyaQJn-lwYowHoQlopor2qwkwlk17g_c_qVlw4VAYLv

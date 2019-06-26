@@ -56,7 +56,7 @@ export class MoodsComponent implements OnInit {
         (response) => {
           console.log(response);
         }
-      )
+      );
     this.getAllMoods();
   }
 
@@ -66,7 +66,7 @@ export class MoodsComponent implements OnInit {
         (response) => {
           console.log(response);
         }
-      )
+      );
     this.getAllMoods();
   }
 

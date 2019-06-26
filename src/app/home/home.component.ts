@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { OpenWeatherService } from '../open-weather.service';
+import { TouchSequence } from 'selenium-webdriver';
 
 @Component({
   selector: 'app-home',
@@ -31,6 +32,11 @@ export class HomeComponent implements OnInit {
           console.log(this.fiveDayForecast);
         }
       )
+  }
+
+  searchByCityName(cityName:string){
+    this.getCityFiveDayForecast(cityName);
+    this.getCurrentCityWeather(cityName);
   }
 
   ngOnInit() {

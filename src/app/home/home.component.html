@@ -1,19 +1,58 @@
-<div class="container">
+<div class="container-fluid px-5">
   <div class="row">
     <div class="offset-md-7"></div>
     <div class="col-md-5">
       <div class="form-inline float-right">
-          <input type="search" class="form-control" placeholder="Enter city name">
-          <button class="btn btn-primary m-2">Search <span class="fa fa-search"></span> </button>
+        <input type="search" #cityName class="form-control" placeholder="Enter city name">
+        <button (click)="searchByCityName(cityName.value)" class="btn btn-primary m-2">Search <span
+            class="fa fa-search"></span> </button>
       </div>
     </div>
-    
+
   </div>
   <div class="row">
-    <div class="container">
+    <div class="container-fluid px-5">
       <hr>
-      <div class="row">
-        
+      <div class="row center" *ngIf="currentWeather">
+        <div class="">
+          <div class="widget ml-4">
+            <div class="details">
+              <div class="summary">
+                <span style="padding-right: 10px">{{currentWeather.name | uppercase}}</span> <img
+                  src="https://www.countryflags.io/{{currentWeather.sys.country | lowercase}}/flat/64.png" height="45"
+                  alt="">
+              </div>
+              <div class="temperature">{{currentWeather.main.temp | number:'1.0-0'}}°</div>
+              <div class="summary">
+                <p class="summaryText">{{currentWeather.weather[0].description | titlecase}}</p>
+              </div>
+              <div class="precipitation">Humidity: {{currentWeather.main.humidity}}%</div>
+              <div class="wind">Wind: {{currentWeather.wind.speed}} km/h</div>
+            </div>
+            <div class="pictoBackdrop"></div>
+            <div class="pictoFrame"></div>
+            <div class="pictoCloudBig"></div>
+            <div class="pictoCloudFill"></div>
+            <div class="pictoCloudSmall" style="background-color:darkkhaki;">
+              <img src="http://openweathermap.org/img/wn/{{currentWeather.weather[0].icon}}@2x.png"
+                style="margin-top:25px;margin-left: 15px;" alt="">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row" *ngIf="fiveDayForecast">
+        <span></span>
+        <div class="offset-md-1 col-md-10 offset-lg-1 col-lg-10 col-sm-12">
+          <div class="row center">
+            <div class="col-md-2 col-sm-5 col-lg-2 card-widget" *ngFor="let forecast of fiveDayForecast">
+              <img src="" alt="">
+              <img src="http://openweathermap.org/img/wn/{{forecast.weather[0].icon}}@2x.png" alt="">
+              <p class="summaryText text-white">{{forecast.weather[0].main | titlecase}}
+                {{forecast.main.temp |  number:'1.0-0'}}°</p>
+              <h4 class="center">{{forecast.dt_txt | date : 'EEEE'}}</h4>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
