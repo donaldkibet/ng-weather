@@ -12,7 +12,7 @@ body {
 .widget {
   background: linear-gradient(to bottom right, #3cc0fe 20%, #0066ff);
   width: 1000px;
-  height: 465px;
+  height: auto;
   border-radius: 6px;
   /* box-shadow: 0px 60px 80px -20px rgba(39, 165, 253, 0.4); */
   position: relative;

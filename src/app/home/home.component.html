@@ -3,16 +3,15 @@
     <div class="offset-md-7"></div>
     <div class="col-md-5">
       <div class="form-inline float-right">
-        <input type="search" #cityName class="form-control form-control-lg" placeholder="Enter city name">
-        <button (click)="searchByCityName(cityName.value)" class="btn btn-primary btn-lg m-2">Search <span
+        <input type="search" #cityName class="form-control" placeholder="Enter city name">
+        <button (click)="searchByCityName(cityName.value)" class="btn btn-primary m-2">Search <span
             class="fa fa-search"></span> </button>
       </div>
     </div>
 
   </div>
   <div class="row">
-    <div class="container-fluid px-5">
-      <hr>
+    <div class="container">
       <div class="row center" *ngIf="currentWeather">
         <div class="">
           <div class="widget ml-4">
