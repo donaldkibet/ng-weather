@@ -20,7 +20,7 @@ install:
   - npm install
 
 script:
-  - ng build --prod --aot=false
+  - ng build --prod
 
 after_success:
   - firebase deploy --token 1/C_CqJ2yNFheBTwBfQm6spwyaQJn-lwYowHoQlopor2qwkwlk17g_c_qVlw4VAYLv

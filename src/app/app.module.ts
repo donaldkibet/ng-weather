@@ -18,7 +18,9 @@ import { BackendService } from './backend.service';
     AppComponent,
     HomeComponent,
     ActivitiesComponent,
-    MoodsComponent
+    MoodsComponent,
+    DateFormat,
+    customDatePipe
   ],
   imports: [
     BrowserModule,
