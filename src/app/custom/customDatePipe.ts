@@ -12,5 +12,9 @@ export class DateFormat  extends DatePipe implements DatePipe{
         return super.transform(value,'yyyy-MM-dd');
     }
 }
-
+export class DayFormat  extends DatePipe implements DatePipe{
+    transform(value:any):any{
+        return super.transform(value,'EEEE');
+    }
+}
 

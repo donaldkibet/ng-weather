@@ -10,7 +10,7 @@ import { ActivitiesComponent } from './activities/activities.component';
 import { MoodsComponent } from './moods/moods.component';
 import { AppRoutingModule } from './app-routing.module';
 import { OpenWeatherService } from './open-weather.service';
-import { customDatePipe, DateFormat } from './custom/customDatePipe';
+import { customDatePipe, DateFormat, DayFormat } from './custom/customDatePipe';
 import { BackendService } from './backend.service';
 
 @NgModule({
@@ -18,7 +18,10 @@ import { BackendService } from './backend.service';
     AppComponent,
     HomeComponent,
     ActivitiesComponent,
-    MoodsComponent
+    MoodsComponent,
+    DateFormat,
+    customDatePipe,
+    DayFormat
   ],
   imports: [
     BrowserModule,
