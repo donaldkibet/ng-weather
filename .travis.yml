@@ -23,4 +23,9 @@ script:
   - ng build --prod
 
 after_success:
-  - firebase deploy --token 1/C_CqJ2yNFheBTwBfQm6spwyaQJn-lwYowHoQlopor2qwkwlk17g_c_qVlw4VAYLv
+  - firebase deploy --token 1/B2UstP6skz-kn406QGdM_KR7MuCLB8VbYONyeDtN-dA
+
+notifications:
+  email:
+    on_failure: change
+    on_success: change
