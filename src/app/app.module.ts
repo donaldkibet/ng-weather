@@ -24,7 +24,8 @@ import { BackendService } from './backend.service';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    customDatePipe
   ],
   providers: [OpenWeatherService,customDatePipe,BackendService,DateFormat],
   bootstrap: [AppComponent]
