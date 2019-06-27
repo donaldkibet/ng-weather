@@ -44,20 +44,20 @@ export class MoodsComponent implements OnInit {
     this.backendservice.newMood(this.mood)
       .subscribe(
         (response) => {
+          this.getAllMoods();
           console.log(response);
         }
       );
-    this.getAllMoods();
   }
 
   upDatemood() {
     this.backendservice.upDateMood(this.mood)
       .subscribe(
         (response) => {
+          this.getAllMoods();
           console.log(response);
         }
       );
-    this.getAllMoods();
   }
 
   deletemood(id) {
@@ -65,9 +65,9 @@ export class MoodsComponent implements OnInit {
       .subscribe(
         (response) => {
           console.log(response);
+          this.getAllMoods();
         }
       );
-    this.getAllMoods();
   }
 
 

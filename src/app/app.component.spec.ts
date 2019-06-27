@@ -1,31 +1,38 @@
-import { TestBed, async } from '@angular/core/testing';
+import { TestBed, async, ComponentFixture } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import {RouterTestingModule} from '@angular/router/testing';
+import { DebugElement } from '@angular/core';
+import { By } from '@angular/platform-browser';
+import { RouterOutlet } from '@angular/router';
 
 describe('AppComponent', () => {
+
+  let fixture:ComponentFixture<AppComponent>;
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
         AppComponent
       ],
+      imports:[
+        RouterTestingModule
+      ]
     }).compileComponents();
+    fixture = TestBed.createComponent(AppComponent);
   }));
 
   it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'ng-weather'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
+  it(`should have the title as 'ng-weather'`, () => {
     const app = fixture.debugElement.componentInstance;
     expect(app.title).toEqual('ng-weather');
   });
 
-  it('should render title in a h1 tag', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to ng-weather!');
-  });
+  it('should have the router-outlet element',()=>{
+    let routerElement = fixture.debugElement.query(By.directive(RouterOutlet));
+    expect(routerElement).toBeTruthy('the AppComponent does not contain router-outlet');
+  })
 });
