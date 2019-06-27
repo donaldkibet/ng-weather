@@ -17,6 +17,7 @@ cache:
      - ./node_modules
 
 install:
+  - npm install firebase-tools
   - npm install
 
 script:
