@@ -32,7 +32,7 @@ export class HomeComponent implements OnInit {
       )
   }
 
-  searchByCityName(cityName:string){
+  searchByCityName(cityName: string) {
     this.getCityFiveDayForecast(cityName);
     this.getCurrentCityWeather(cityName);
   }
