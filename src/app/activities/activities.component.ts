@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+
 import { BackendService } from '../backend.service';
-import { Activity } from '../models/models';
+import { Activity } from '../models/Activity';
 import { DateFormat } from '../custom/customDatePipe';
 
 @Component({
@@ -10,9 +11,17 @@ import { DateFormat } from '../custom/customDatePipe';
 })
 export class ActivitiesComponent implements OnInit {
 
-  activities: any[] = [];
-  activity: Activity = new Activity(null, "", new Date(), "");
-  constructor(private backendService: BackendService, private dateFormat: DateFormat) { }
+  activities: Activity[] = [];
+  activity: Activity;
+
+  constructor(private backendService: BackendService, private dateFormat: DateFormat) {
+    this.activity = {
+      id : null,
+      time : null,
+      date : null,
+      activity : null,
+    }
+   }
 
   getAllActivities() {
     this.backendService.getAllActivityies()
@@ -27,7 +36,8 @@ export class ActivitiesComponent implements OnInit {
     this.backendService.getActivityById(id)
       .subscribe(
         (response) => {
-          this.activity = new Activity(Object.values(response)[0]['id'], Object.values(response)[0]['time'], this.dateFormat.transform(Object.values(response)[0]['date']), Object.values(response)[0]['activity']);
+          response.date = this.dateFormat.transform(response.date);
+          this.activity = response;
         }
       )
   }
@@ -36,16 +46,17 @@ export class ActivitiesComponent implements OnInit {
     this.backendService.newActivity(this.activity)
       .subscribe(
         (response) => {
-          this.getAllActivities();
+          this.activities.push(this.activity);
         }
       )
   }
 
-  upDateActivity() {
+  updateActivity() {
     this.backendService.updateActivity(this.activity)
       .subscribe(
         (response) => {
-          this.getAllActivities();
+          let key = this.activities.findIndex(oldActivity=>oldActivity.id == this.activity.id);
+          this.activities.splice(key,1,this.activity);
         }
       )
   }
@@ -54,18 +65,17 @@ export class ActivitiesComponent implements OnInit {
     this.backendService.deleteActivity(id)
       .subscribe(
         (response) => {
-          this.getAllActivities();
+          let key = this.activities.findIndex(deletActivity => deletActivity.id.toString() == id);
+          this.activities.splice(key,1);
         }
       )
   }
 
-
   resetFields() {
-    this.activity = new Activity(0, "", new Date(), "");
+    this.activity = {id:null,time:null,date:null,activity:null};
   }
 
   ngOnInit() {
     this.getAllActivities();
   }
-
 }

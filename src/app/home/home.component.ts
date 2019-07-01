@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+
 import { OpenWeatherService } from '../open-weather.service';
-import { TouchSequence } from 'selenium-webdriver';
 
 @Component({
   selector: 'app-home',
@@ -19,7 +19,6 @@ export class HomeComponent implements OnInit {
       .subscribe(
         (data) => {
           this.currentWeather = data;
-          console.log(this.currentWeather);
         }
       )
   }
@@ -29,7 +28,6 @@ export class HomeComponent implements OnInit {
       .subscribe(
         (data) => {
           this.fiveDayForecast = data;
-          console.log(this.fiveDayForecast);
         }
       )
   }

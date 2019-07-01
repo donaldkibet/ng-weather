@@ -7,9 +7,9 @@ import { ActivitiesComponent } from './activities/activities.component';
 
 const routes =[
   {path:'home',component:HomeComponent},
-  {path:'',redirectTo:'/home',pathMatch:'full'},
   {path:'moods',component:MoodsComponent},
-  {path:'activity',component:ActivitiesComponent}
+  {path:'activity',component:ActivitiesComponent},
+  {path:'',redirectTo:'/home',pathMatch:'full'},
 ]
 
 @NgModule({

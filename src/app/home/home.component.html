@@ -3,7 +3,7 @@
     <div class="offset-md-7"></div>
     <div class="col-md-5">
       <div class="form-inline float-right">
-        <input type="search" #cityName class="form-control" placeholder="Enter city name">
+        <input type="search" #cityName class="form-control" name="search" placeholder="Enter city name">
         <button (click)="searchByCityName(cityName.value)" class="btn btn-primary m-2">Search <span
             class="fa fa-search"></span> </button>
       </div>
@@ -17,7 +17,7 @@
           <div class="widget ml-4">
             <div class="details">
               <div class="summary">
-                <span style="padding-right: 10px" style="color: white">{{currentWeather.name | uppercase}}</span>
+                <span class="bg-custome-white">{{currentWeather.name | uppercase}}</span>
                 <img src="https://www.countryflags.io/{{currentWeather.sys.country | lowercase}}/flat/64.png"
                   height="45" alt="">
               </div>
@@ -32,13 +32,14 @@
             <div class="pictoFrame"></div>
             <div class="pictoCloudBig"></div>
             <div class="pictoCloudFill"></div>
-            <div class="pictoCloudSmall" style="background-color:darkkhaki;">
+            <div class="pictoCloudSmall bg-khaki">
               <img src="http://openweathermap.org/img/wn/{{currentWeather.weather[0].icon}}@2x.png"
-                style="margin-top:25px;margin-left: 15px;" alt="">
+                class="img-space" alt="">
             </div>
           </div>
         </div>
       </div>
+      
       <div class="row" *ngIf="fiveDayForecast">
         <span></span>
         <div class="container-fluid  center">

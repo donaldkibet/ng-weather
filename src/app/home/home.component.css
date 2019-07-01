@@ -14,7 +14,6 @@ body {
   width: 1000px;
   height: auto;
   border-radius: 6px;
-  /* box-shadow: 0px 60px 80px -20px rgba(39, 165, 253, 0.4); */
   position: relative;
   overflow: hidden;
 }
@@ -162,4 +161,17 @@ body {
   display: flex;
   justify-content: center;
   
+}
+
+.bg-khaki{
+  background-color:darkkhaki;
+}
+.bg-custome-white{
+  color: white;
+  padding-right: 10px
+}
+
+.img-space{
+  margin-top:25px;
+  margin-left: 15px;
 }

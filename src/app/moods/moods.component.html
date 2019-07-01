@@ -28,8 +28,8 @@
               <td>{{mood.date | date : 'EE, MMMM d, y'}}</td>
               <td>{{mood.mood}}</td>
               <td colspan="2">
-                <button class="btn btn-warning mr-1 text-white btn-sm" (click)='getmoodById(mood.id)' data-toggle="modal" data-target="#updateModal"><span class="fa fa-edit"></span> Edit</button>
-                <button class="btn btn-danger ml-3 btn-sm" (click)='deletemood(mood.id)'><span class="fa fa-trash"></span> Delete</button>
+                <button class="btn btn-warning mr-1 text-white btn-sm" (click)='getMoodById(mood.id)' data-toggle="modal" data-target="#updateModal"><span class="fa fa-edit"></span> Edit</button>
+                <button class="btn btn-danger ml-3 btn-sm" (click)='deleteMood(mood.id)'><span class="fa fa-trash"></span> Delete</button>
               </td>
             </tr>
           </tbody>
@@ -78,8 +78,8 @@
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" (click)="newmood()" data-dismiss="modal" class="btn btn-primary"><span class="fa fa-save"></span> Save changes</button>
+          <button type="button" (click)="resetFields()" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" (click)="newMood()" data-dismiss="modal" class="btn btn-primary"><span class="fa fa-save"></span> Save changes</button>
         </div>
       </div>
     </div>
@@ -100,7 +100,7 @@
         <div class="modal-body" *ngIf="mood">
           <div class="col-md-12">
               <div class="form-group">
-                  <div class="input-group mb-3">
+                  <div class="input-group mb-3 invisible">
                       <div class="input-group-prepend">
                         <span class="input-group-text" id="basic-addon1"><i class="fa fa-id-card"></i></span>
                       </div>
@@ -135,7 +135,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" (click)="upDatemood()" data-dismiss="modal" class="btn btn-primary"><span class="fa fa-save"></span> Save changes</button>
+          <button type="button" (click)="updateMood()" data-dismiss="modal" class="btn btn-primary"><span class="fa fa-save"></span> Save changes</button>
         </div>
       </div>
     </div>

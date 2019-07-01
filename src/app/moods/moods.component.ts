@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Moods } from '../models/models';
+import { Component, OnInit, Input } from '@angular/core';
+import { Mood } from '../models/Mood';
 import { DateFormat } from '../custom/customDatePipe';
 import { BackendService } from '../backend.service';
 
@@ -11,66 +11,76 @@ import { BackendService } from '../backend.service';
 })
 export class MoodsComponent implements OnInit {
 
-  moods: any;
-  mood: Moods = new Moods(0, "", new Date(), "");
+  moods: Mood[];
+  mood: Mood;
 
-  constructor(private backendservice: BackendService, private dateFormat: DateFormat) { }
+  constructor(private backendservice: BackendService, private dateFormat: DateFormat) {
+    this.mood = {
+      id: null,
+      time: null,
+      date: null,
+      mood: null,
+    }
+  }
 
   resetFields() {
-    this.mood = new Moods(0, "", new Date(), "");
+    this.mood = {
+      id: null,
+      time: null,
+      date: null,
+      mood: null,
+    };
   }
 
   getAllMoods() {
     this.backendservice.getAllMoods()
       .subscribe(
         (response) => {
-          console.log(response);
           this.moods = response;
         }
       )
   }
 
-  getmoodById(id) {
+  getMoodById(id) {
     this.backendservice.getMoodById(id)
       .subscribe(
         (response) => {
-          let resp = Object.values(response)[0];
-          this.mood = new Moods(resp['id'], resp['time'], this.dateFormat.transform(resp['date']), resp['mood']);
+          response.date = this.dateFormat.transform(response.date);
+          this.mood = new Mood(response);
         }
       )
   }
 
-  newmood() {
+  newMood() {
     this.backendservice.newMood(this.mood)
       .subscribe(
         (response) => {
-          this.getAllMoods();
           console.log(response);
+          this.moods.push(this.mood);
         }
       );
   }
 
-  upDatemood() {
-    this.backendservice.upDateMood(this.mood)
+  updateMood() {
+    this.backendservice.updateMood(this.mood)
       .subscribe(
         (response) => {
-          this.getAllMoods();
-          console.log(response);
+          let key = this.moods.findIndex(updateMood => updateMood.id == this.mood.id);
+          this.moods.splice(key, 1, this.mood);
         }
       );
   }
 
-  deletemood(id) {
+  deleteMood(id) {
     this.backendservice.deleteMood(id)
       .subscribe(
         (response) => {
           console.log(response);
-          this.getAllMoods();
+          let key = this.moods.findIndex(deleteMood => deleteMood.id == id);
+          this.moods.splice(key, 1);
         }
       );
   }
-
-
 
   ngOnInit() {
     this.getAllMoods();
