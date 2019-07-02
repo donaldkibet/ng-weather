@@ -13,6 +13,8 @@ export class OpenWeatherService {
   apiKey = "eb3153008d4fbc9414f3069b29b9cae1";
   urlEndPoint = 'https://api.openweathermap.org/data/2.5';
 
+  constructor(private http: HttpClient, private customeDatePipe: customDatePipe) { }
+
   getCityCurrentWeatherConditions(cityName: string): Observable<any> {
     return this.http.get(`${this.urlEndPoint}/weather?q=${cityName}&units=metric&appid=${this.apiKey}`);
   }
@@ -37,8 +39,6 @@ export class OpenWeatherService {
         })
       );
   }
-
-  constructor(private http: HttpClient, private customeDatePipe: customDatePipe) { }
 
   private handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
