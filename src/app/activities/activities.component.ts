@@ -15,16 +15,11 @@ export class ActivitiesComponent implements OnInit {
   activity: Activity;
 
   constructor(private backendService: BackendService, private dateFormat: DateFormat) {
-    this.activity = {
-      id : null,
-      time : null,
-      date : null,
-      activity : null,
-    }
+    this.activity = new Activity({});
    }
 
   getAllActivities() {
-    this.backendService.getAllActivityies()
+    this.backendService.getAllActivities()
       .subscribe(
         (response) => {
           this.activities = response;
@@ -72,7 +67,7 @@ export class ActivitiesComponent implements OnInit {
   }
 
   resetFields() {
-    this.activity = {id:null,time:null,date:null,activity:null};
+    this.activity = new Activity({});
   }
 
   ngOnInit() {

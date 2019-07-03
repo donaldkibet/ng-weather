@@ -49,7 +49,7 @@ export class OpenWeatherService {
         `body was: ${error.error}`);
     }
     return throwError(
-      alert()
+      alert('City Name is Invalid or Internet connection could not be established')
     );
   };
 

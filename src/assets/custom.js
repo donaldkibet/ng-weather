@@ -1,9 +1,9 @@
 $(document).ready(function(){
     
 });
-function alert(){
+function alert(errorMsg){
     $.alert({
-        title: 'Error 404',
-        content: 'Could not retrieve the city weather forecast or check your internet connectivity',
+        title: 'Application Error',
+        content: errorMsg,
     });
 }
