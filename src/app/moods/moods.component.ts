@@ -20,7 +20,7 @@ export class MoodsComponent implements OnInit {
       time: null,
       date: null,
       mood: null,
-    }
+    };
   }
 
   resetFields() {
@@ -38,7 +38,7 @@ export class MoodsComponent implements OnInit {
         (response) => {
           this.moods = response;
         }
-      )
+      );
   }
 
   getMoodById(id) {
@@ -48,7 +48,7 @@ export class MoodsComponent implements OnInit {
           response.date = this.dateFormat.transform(response.date);
           this.mood = new Mood(response);
         }
-      )
+      );
   }
 
   newMood() {
@@ -65,7 +65,7 @@ export class MoodsComponent implements OnInit {
     this.backendservice.updateMood(this.mood)
       .subscribe(
         (response) => {
-          let key = this.moods.findIndex(updateMood => updateMood.id == this.mood.id);
+          const key = this.moods.findIndex(updateMood => updateMood.id === this.mood.id);
           this.moods.splice(key, 1, this.mood);
         }
       );
@@ -76,7 +76,7 @@ export class MoodsComponent implements OnInit {
       .subscribe(
         (response) => {
           console.log(response);
-          let key = this.moods.findIndex(deleteMood => deleteMood.id == id);
+          const key = this.moods.findIndex(deleteMood => deleteMood.id === id);
           this.moods.splice(key, 1);
         }
       );

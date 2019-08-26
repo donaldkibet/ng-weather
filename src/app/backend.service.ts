@@ -37,10 +37,10 @@ export class BackendService {
       .pipe(
         catchError(this.handleError),
         map((response) => {
-          let mood: Mood = new Mood(response[0]);
+          const mood: Mood = new Mood(response[0]);
           return mood;
         })
-      )
+      );
   }
 
   newMood(newMood: Mood): Observable<any> {
@@ -73,11 +73,11 @@ export class BackendService {
         map((response) => {
           const activities: Activity[] = [];
           Object.values(response).forEach(activity => {
-            activities.push(activity)
+            activities.push(activity);
           });
           return activities;
         })
-      )
+      );
   }
 
   getActivityById(id: string): Observable<Activity> {
@@ -85,10 +85,10 @@ export class BackendService {
       .pipe(
         catchError(this.handleError),
         map((response) => {
-          let activity: Activity = new Activity(response[0]);
+          const activity: Activity = new Activity(response[0]);
           return activity;
         })
-      )
+      );
   }
 
   newActivity(activity: Activity): Observable<any> {
@@ -114,10 +114,10 @@ export class BackendService {
   }
 
   private handleError(error: HttpErrorResponse) {
-    if (error.error instanceof (ErrorEvent)) console.log('An error has occurred ' + error.status + ' ' + error.error.message);
+    if (error.error instanceof (ErrorEvent)) { console.log('An error has occurred ' + error.status + ' ' + error.error.message); }
     return throwError(
       alert('Connection to the resource could not be established please check your connection or the resource availability')
-    )
+    );
   }
 
 }
