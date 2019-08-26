@@ -72,6 +72,7 @@ export class MoodsComponent implements OnInit {
   }
 
   deleteMood(id) {
+    console.log(id);
     this.backendservice.deleteMood(id)
       .subscribe(
         (response) => {

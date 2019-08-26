@@ -10,7 +10,7 @@ import { customDatePipe } from './custom/customDatePipe';
 })
 export class OpenWeatherService {
 
-  apiKey = "eb3153008d4fbc9414f3069b29b9cae1";
+  apiKey = 'eb3153008d4fbc9414f3069b29b9cae1';
   urlEndPoint = 'https://api.openweathermap.org/data/2.5';
 
   constructor(private http: HttpClient, private customeDatePipe: customDatePipe) { }
@@ -27,12 +27,11 @@ export class OpenWeatherService {
           let data: any[] = [];
           if (Object.values(response).length > 0) {
             Object.values(response)[3].forEach((element) => {
-              if (this.customeDatePipe.transform(element.dt_txt) == 12) {
+              if (this.customeDatePipe.transform(element.dt_txt) === 12) {
                 data.push(element);
               }
             });
-          }
-          else{
+          } else {
             data = [];
           }
           return data;
@@ -51,6 +50,6 @@ export class OpenWeatherService {
     return throwError(
       alert('City Name is Invalid or Internet connection could not be established')
     );
-  };
+  }
 
 }
