@@ -1,6 +1,8 @@
 # NgWeather
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.0.3.
+This is a project to display the current and five day weather forecast of a select city. By default `Eldoret` is the default city. Implemented using
+* NodeJS V12.7.0
+* Angular 8.0.3
 
 ## Development server
 
