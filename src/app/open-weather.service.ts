@@ -27,7 +27,7 @@ export class OpenWeatherService {
           let data: any[] = [];
           if (Object.values(response).length > 0) {
             Object.values(response)[3].forEach((element) => {
-              if (this.customeDatePipe.transform(element.dt_txt) === 12) {
+              if (this.customeDatePipe.transform(element.dt_txt) == 12) {
                 data.push(element);
               }
             });
