@@ -2,6 +2,7 @@ import { TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 
 import { BackendService } from './backend.service';
+import { Mood } from './models/Mood';
 
 describe('BackendService', () => {
   let httpMock: HttpTestingController;
@@ -20,16 +21,5 @@ describe('BackendService', () => {
   it('should be created', () => {
     const service: BackendService = TestBed.get(BackendService);
     expect(service).toBeTruthy();
-  });
-
-  it('should get All moods', () => {
-      service.getAllMoods().subscribe(
-        (response) => {
-          expect(response).toBeTruthy();
-        }
-      );
-      const req = httpMock.expectOne(`${mockUrl}/mood`);
-      expect(req.request.method).toBe('GET');
-      req.flush({});
   });
 });
