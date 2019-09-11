@@ -3,7 +3,7 @@ import { Observable, throwError } from 'rxjs';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { map, catchError } from 'rxjs/operators';
 
-import { customDatePipe } from './custom/customDatePipe';
+import { CustomDatePipe } from './custom/customDatePipe';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +13,7 @@ export class OpenWeatherService {
   apiKey = 'eb3153008d4fbc9414f3069b29b9cae1';
   urlEndPoint = 'https://api.openweathermap.org/data/2.5';
 
-  constructor(private http: HttpClient, private customeDatePipe: customDatePipe) { }
+  constructor(private http: HttpClient, private customeDatePipe: CustomDatePipe) { }
 
   getCityCurrentWeatherConditions(cityName: string): Observable<any> {
     return this.http.get(`${this.urlEndPoint}/weather?q=${cityName}&units=metric&appid=${this.apiKey}`);

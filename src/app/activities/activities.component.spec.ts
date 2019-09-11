@@ -13,8 +13,8 @@ describe('ActivitiesComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ ActivitiesComponent ],
-      imports:[HttpClientTestingModule,FormsModule],
-      providers:[BackendService,DateFormat]
+      imports: [HttpClientTestingModule, FormsModule],
+      providers: [BackendService, DateFormat]
     })
     .compileComponents();
   }));

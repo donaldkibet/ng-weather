@@ -2,7 +2,7 @@ import { TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 
 import { OpenWeatherService } from './open-weather.service';
-import { customDatePipe } from './custom/customDatePipe';
+import { CustomDatePipe } from './custom/customDatePipe';
 
 describe('OpenWeatherService', () => {
 
@@ -284,7 +284,7 @@ describe('OpenWeatherService', () => {
       ],
       providers: [
         OpenWeatherService,
-        customDatePipe
+        CustomDatePipe
       ]
     });
     mockHttp = TestBed.get(HttpTestingController);

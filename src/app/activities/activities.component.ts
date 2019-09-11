@@ -24,7 +24,7 @@ export class ActivitiesComponent implements OnInit {
         (response) => {
           this.activities = response;
         }
-      )
+      );
   }
 
   getActivityById(id: string) {
@@ -34,7 +34,7 @@ export class ActivitiesComponent implements OnInit {
           response.date = this.dateFormat.transform(response.date);
           this.activity = response;
         }
-      )
+      );
   }
 
   newActivity() {
@@ -43,27 +43,27 @@ export class ActivitiesComponent implements OnInit {
         (response) => {
           this.activities.push(this.activity);
         }
-      )
+      );
   }
 
   updateActivity() {
     this.backendService.updateActivity(this.activity)
       .subscribe(
         (response) => {
-          let key = this.activities.findIndex(oldActivity=>oldActivity.id == this.activity.id);
-          this.activities.splice(key,1,this.activity);
+          const key = this.activities.findIndex(oldActivity => oldActivity.id == this.activity.id);
+          this.activities.splice(key, 1, this.activity);
         }
-      )
+      );
   }
 
-  deleteActivity(id:string) {
+  deleteActivity(id: string) {
     this.backendService.deleteActivity(id)
       .subscribe(
         (response) => {
-          let key = this.activities.findIndex(deletActivity => deletActivity.id.toString() == id);
-          this.activities.splice(key,1);
+          const key = this.activities.findIndex(deletActivity => deletActivity.id.toString() == id);
+          this.activities.splice(key, 1);
         }
-      )
+      );
   }
 
   resetFields() {

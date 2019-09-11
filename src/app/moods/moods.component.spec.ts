@@ -13,8 +13,8 @@ describe('MoodsComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ MoodsComponent ],
-      imports:[HttpClientTestingModule,FormsModule],
-      providers:[BackendService,DateFormat]
+      imports: [HttpClientTestingModule, FormsModule],
+      providers: [BackendService, DateFormat]
     })
     .compileComponents();
   }));

@@ -14,22 +14,22 @@ export class HomeComponent implements OnInit {
 
   constructor(private openWeatherService: OpenWeatherService) { }
 
-  getCurrentCityWeather(cityName: string = "Eldoret") {
+  getCurrentCityWeather(cityName: string = 'Eldoret') {
     this.openWeatherService.getCityCurrentWeatherConditions(cityName)
       .subscribe(
         (data) => {
           this.currentWeather = data;
         }
-      )
+      );
   }
 
-  getCityFiveDayForecast(cityName: string = "Eldoret") {
+  getCityFiveDayForecast(cityName: string = 'Eldoret') {
     this.openWeatherService.getCityFiveDayForecast(cityName)
       .subscribe(
         (data) => {
           this.fiveDayForecast = data;
         }
-      )
+      );
   }
 
   searchByCityName(cityName: string) {
