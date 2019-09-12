@@ -50,6 +50,7 @@ export class ActivitiesComponent implements OnInit {
     this.backendService.updateActivity(this.activity)
       .subscribe(
         (response) => {
+          // tslint:disable-next-line: triple-equals
           const key = this.activities.findIndex(oldActivity => oldActivity.id == this.activity.id);
           this.activities.splice(key, 1, this.activity);
         }
@@ -60,6 +61,7 @@ export class ActivitiesComponent implements OnInit {
     this.backendService.deleteActivity(id)
       .subscribe(
         (response) => {
+          // tslint:disable-next-line: triple-equals
           const key = this.activities.findIndex(deletActivity => deletActivity.id.toString() == id);
           this.activities.splice(key, 1);
         }

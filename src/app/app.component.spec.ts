@@ -7,14 +7,14 @@ import { RouterOutlet } from '@angular/router';
 
 describe('AppComponent', () => {
 
-  let fixture:ComponentFixture<AppComponent>;
+  let fixture: ComponentFixture<AppComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
         AppComponent
       ],
-      imports:[
+      imports: [
         RouterTestingModule
       ]
     }).compileComponents();
@@ -31,8 +31,8 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('ng-weather');
   });
 
-  it('should have the router-outlet element',()=>{
-    let routerElement = fixture.debugElement.query(By.directive(RouterOutlet));
+  it('should have the router-outlet element', () => {
+    const routerElement = fixture.debugElement.query(By.directive(RouterOutlet));
     expect(routerElement).toBeTruthy('the AppComponent does not contain router-outlet');
-  })
+  });
 });

@@ -29,7 +29,7 @@ import { BackendService } from './backend.service';
     HttpClientModule,
     FormsModule,
   ],
-  providers: [OpenWeatherService,CustomDatePipe,BackendService,DateFormat],
+  providers: [OpenWeatherService, CustomDatePipe, BackendService, DateFormat],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -5,18 +5,18 @@ import { HomeComponent } from './home/home.component';
 import { MoodsComponent } from './moods/moods.component';
 import { ActivitiesComponent } from './activities/activities.component';
 
-const routes =[
-  {path:'home',component:HomeComponent},
-  {path:'moods',component:MoodsComponent},
-  {path:'activity',component:ActivitiesComponent},
-  {path:'',redirectTo:'/home',pathMatch:'full'},
-]
+const routes = [
+  {path: 'home', component: HomeComponent},
+  {path: 'moods', component: MoodsComponent},
+  {path: 'activity', component: ActivitiesComponent},
+  {path: '', redirectTo: '/home', pathMatch: 'full'},
+];
 
 @NgModule({
   imports: [
     RouterModule.forRoot(routes)
   ],
-  exports:[
+  exports: [
     RouterModule
   ]
 })

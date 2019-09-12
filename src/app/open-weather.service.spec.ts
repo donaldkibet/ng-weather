@@ -337,7 +337,7 @@ describe('OpenWeatherService', () => {
         expect(response[0].cod).toBe('404');
         expect(response[0].message).toBe('city not found');
       }
-    )
+    );
   });
 
   afterAll(() => {

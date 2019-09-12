@@ -7,10 +7,10 @@ import { Mood } from './models/Mood';
 describe('BackendService', () => {
   let httpMock: HttpTestingController;
   let service: BackendService;
-  const mockUrl: String = 'http://localhost:8052';
+  const mockUrl = 'http://localhost:8052';
   beforeEach(() => TestBed.configureTestingModule({
-      imports:[HttpClientTestingModule],
-      providers:[BackendService]
+      imports: [HttpClientTestingModule],
+      providers: [BackendService]
   })
   .compileComponents()
   .then(() => {
@@ -19,7 +19,7 @@ describe('BackendService', () => {
   }));
 
   it('should be created', () => {
-    const service: BackendService = TestBed.get(BackendService);
-    expect(service).toBeTruthy();
+    const serviceBackEnd: BackendService = TestBed.get(BackendService);
+    expect(serviceBackEnd).toBeTruthy();
   });
 });
