@@ -28,4 +28,25 @@ describe('MoodsComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should get all moods', () => {
+    pending();
+  });
+
+  it('should get mood when given the id', () => {
+    pending();
+  });
+
+  it('should save a new mood', () => {
+    pending();
+  });
+
+  it('should update a mood when given the update mood object', () => {
+    pending();
+  });
+
+  it('should delete a mood when given the mood to delete object', () => {
+    pending();
+  });
+
 });

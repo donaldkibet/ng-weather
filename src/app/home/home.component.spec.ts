@@ -27,4 +27,16 @@ describe('HomeComponent', () => {
     it('should create', () => {
         expect(component).toBeTruthy();
     });
+
+    it('should get the current city weather conditions', () => {
+        pending();
+    });
+
+    it('should get the current city forecast conditions', () => {
+        pending();
+    });
+
+    it('should get the the city weather forecast and weather condition when given the city name', () => {
+        pending();
+    });
 });
