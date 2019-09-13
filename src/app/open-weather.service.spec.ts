@@ -338,9 +338,13 @@ describe('OpenWeatherService', () => {
         expect(response[0].message).toBe('city not found');
       }
     );
+    const req = mockHttp.expectOne(`${fakeUrl}/forecast?q=Eldoret&units=metric&appid=${fakeAPIKey}`);
+    expect(req.request.method).toBe('GET');
+    req.flush(errorResponse);
   });
 
   afterAll(() => {
     TestBed.resetTestingModule();
   });
+
 });

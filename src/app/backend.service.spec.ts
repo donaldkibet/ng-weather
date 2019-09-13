@@ -8,6 +8,7 @@ describe('BackendService', () => {
   let httpMock: HttpTestingController;
   let service: BackendService;
   const mockUrl = 'http://localhost:8052';
+  const mood = { id : 1, time: '20:20:15', date : new Date(), mood : 'Happy Evening'};
   beforeEach(() => TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
       providers: [BackendService]
@@ -46,7 +47,6 @@ describe('BackendService', () => {
   });
 
   it('should save a new mood when given a new mood object', () => {
-    const mood = { id : 1, time: '20:20:15', date : new Date(), mood : 'Happy Evening'};
     service.newMood(new Mood(mood)).subscribe(
       (response) => {
         expect(response).toBeDefined();
@@ -54,6 +54,39 @@ describe('BackendService', () => {
     );
     const req = httpMock.expectOne(`${mockUrl}/mood`);
     expect(req.request.method).toBe('POST');
+    req.flush({});
+  });
+
+  it('should update mood when given the moods object', () => {
+    service.updateMood(mood).subscribe(
+      (response) => {
+        expect(response).toBeDefined();
+      }
+    );
+    const req = httpMock.expectOne(`${mockUrl}/mood`);
+    expect(req.request.method).toBe('PUT');
+    req.flush({});
+  });
+
+  it('should delete mood when given the mood id', () => {
+    service.deleteMood('1').subscribe(
+      (response) => {
+        expect(response).toBeDefined();
+      }
+    );
+    const req = httpMock.expectOne(`${mockUrl}/mood/1`);
+    expect(req.request.method).toBe('DELETE');
+    req.flush({});
+  });
+
+  it('should retrive all activities', () => {
+    service.getAllActivities().subscribe(
+      (response) => {
+        expect(response).toBeDefined();
+      }
+    );
+    const req = httpMock.expectOne(`${mockUrl}/activity`);
+    expect(req.request.method).toBe('GET');
     req.flush({});
   });
 });
