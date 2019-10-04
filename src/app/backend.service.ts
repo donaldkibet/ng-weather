@@ -24,7 +24,6 @@ export class BackendService {
         map((response) => {
           const moods: Mood[] = [];
           Object.values(response).forEach(mood => {
-            console.log(mood);
             moods.push(mood);
           });
           return moods;
