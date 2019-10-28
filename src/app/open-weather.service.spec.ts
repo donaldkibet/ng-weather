@@ -343,8 +343,5 @@ describe('OpenWeatherService', () => {
     req.flush(errorResponse);
   });
 
-  afterAll(() => {
-    TestBed.resetTestingModule();
-  });
 
 });

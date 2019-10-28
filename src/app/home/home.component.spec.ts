@@ -9,7 +9,7 @@ describe('HomeComponent', () => {
     let component: HomeComponent;
     let fixture: ComponentFixture<HomeComponent>;
 
-    beforeEach(async(() => {
+    beforeEach((() => {
         TestBed.configureTestingModule({
             declarations: [HomeComponent],
             imports: [HttpClientTestingModule],

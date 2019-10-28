@@ -10,7 +10,7 @@ describe('MoodsComponent', () => {
   let component: MoodsComponent;
   let fixture: ComponentFixture<MoodsComponent>;
 
-  beforeEach(async(() => {
+  beforeEach((() => {
     TestBed.configureTestingModule({
       declarations: [ MoodsComponent ],
       imports: [HttpClientTestingModule, FormsModule],

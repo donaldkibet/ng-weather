@@ -11,7 +11,7 @@ describe('ActivitiesComponent', () => {
   let component: ActivitiesComponent;
   let fixture: ComponentFixture<ActivitiesComponent>;
 
-  beforeEach(async(() => {
+  beforeEach((() => {
     TestBed.configureTestingModule({
       declarations: [ ActivitiesComponent ],
       imports: [HttpClientTestingModule, FormsModule],

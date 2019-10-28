@@ -4,7 +4,7 @@ sudo: false
 language: node_js
 node_js:
   - "12"
-  
+
 addons:
   apt:
     sources:
@@ -21,9 +21,7 @@ install:
   - npm install
 
 script:
-  - npm lint
-  - npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
-  #- npm run e2e -- --protractor-config=e2e/protractor-ci.conf.js
+  - npm run lint
   - ng build --prod
 
 after_success:

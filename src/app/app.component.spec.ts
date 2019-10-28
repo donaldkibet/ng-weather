@@ -9,7 +9,7 @@ describe('AppComponent', () => {
 
   let fixture: ComponentFixture<AppComponent>;
 
-  beforeEach(async(() => {
+  beforeEach((() => {
     TestBed.configureTestingModule({
       declarations: [
         AppComponent
