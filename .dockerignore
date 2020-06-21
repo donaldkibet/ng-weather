@@ -1,0 +1,4 @@
+# ignore the following files
+node_modules
+.git
+.gitignore
