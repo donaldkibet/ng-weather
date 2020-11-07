@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/donaldkibet/ng-weather.svg?branch=master)](https://travis-ci.org/donaldkibet/ng-weather)
+[![Coverage Status](https://coveralls.io/repos/github/donaldkibet/ng-weather/badge.svg?branch=master)](https://coveralls.io/github/donaldkibet/ng-weather?branch=master)
 # NgWeather
 
 This is a project to display the current and five day weather forecast of a select city. By default `Eldoret` is the default city. Implemented using
