@@ -22,7 +22,7 @@
     "bootstrap": "^4.3.1",
     "jquery": "^3.5.0",
     "jquery-confirm": "^3.3.4",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "popper.js": "^1.15.0",
     "rxjs": "~6.4.0",
     "tslib": "^1.9.0",
